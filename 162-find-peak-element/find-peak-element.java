@@ -4,10 +4,9 @@ class Solution {
 //ex: [1,2,3] so 1 is always larger then its left and last index is always larger then its right
 // and  for check peak we have to check in both sides so we take low = 1 and high = n-2;
 
-      int n = nums.length;
+        int n = nums.length;
 
-      //some cases
-     // CASE 1: If only one element, it's always a peak (both sides -∞).
+        // CASE 1: If only one element, it's always a peak (both sides -∞).
         if (n == 1) return 0;
 
         // CASE 2: Check if first element is a peak
@@ -21,27 +20,25 @@ class Solution {
         // Binary search between index 1 and n-2
         int low = 1, high = n - 2;
 
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
 
-      while(low <= high){
-        int mid = low+(high-low)/2;
-
-        //Agr mid apne left se bda h or right s to whi peak h
-        // CASE 4: If nums[mid] is greater than both neighbors → peak
-        if(nums[mid] > nums[mid+1] && nums[mid] > nums[mid-1]){
-            return mid;
+            // CASE 4: If nums[mid] is greater than both neighbors → peak
+            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
+                return mid;
+            }
+            // CASE 5: If mid is greater than left but smaller than right,
+            // then the peak lies in the right half.
+            else if (nums[mid] > nums[mid - 1]) {
+                low = mid + 1;
+            }
+            // CASE 6: Else, the peak must lie in the left half.
+            else {
+                high = mid - 1;
+            }
         }
 
-        //agr mid mid k phke elmnt s bda h to aab right dekhnge ky apeak h
-        // CASE 5: If mid is greater than left but smaller than right,
-        // then the peak lies in the right half.
-        else if(nums[mid] > nums[mid-1]){
-            low = mid+1;
-        }
-        else {
-            high =mid-1;
-        }
-      } 
-      return -1;
-        
+        // This line will never be reached because a peak always exists.
+        return -1;
     }
 }
