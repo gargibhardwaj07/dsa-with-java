@@ -17,6 +17,8 @@ class Solution {
             return list1;
         }
 
+     //Basically In this we check by recusrion that which is small and we make small one head 
+     //jb hume  small milgya to hum us list k next se or dusre list ko compare krenge konsa elmnt chota h aab
         if(list1.val <= list2.val){
             list1.next = mergeTwoLists(list1.next, list2);
             return list1;
