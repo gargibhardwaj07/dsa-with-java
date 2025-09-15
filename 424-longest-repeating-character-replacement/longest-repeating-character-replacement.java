@@ -23,7 +23,7 @@ int n = s.length();
 
             // step 2: check if window is invalid
             // replacements needed = (window length - maxFreq)
-            while ((r - l + 1) - maxFreq > k) {
+            if ((r - l + 1) - maxFreq > k) {
                 char lch = s.charAt(l);
                 int count = map.get(lch);
 
