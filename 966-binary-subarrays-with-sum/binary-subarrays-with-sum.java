@@ -1,13 +1,5 @@
 class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
-          for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) {
-                nums[i] = 0;
-            } else {
-                nums[i] = 1;
-            }
-        }
-
         return atMost(nums, goal) - atMost(nums, goal-1);
     }
    
