@@ -9,6 +9,7 @@ class Solution {
             int mid = (low+high)/2;
 
             //agr mid bda h target se ex: target = 1 mid h hmara 3 to hum aab lower se mid tk dudhnge kyuki nd me nhi milega or bde elmnt se h aage
+            //lowe bound = smallest index with (nums[i] >= target)
             if(nums[mid] >= target){ 
                 ans = mid; //possibilty only
                 high = mid-1;
