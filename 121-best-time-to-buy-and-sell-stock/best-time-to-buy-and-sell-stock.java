@@ -1,18 +1,15 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int max = 0;
-        int bestBuy = prices[0]; // kyuki abhi 0 index pr usse phle koi value he nhi h to abhi yhi h
-        for(int i =0;i<prices.length; i++){
-            if(bestBuy < prices[i]){
-                //we know profit is when we check if buy is less than sell so we 
-                int profit = prices[i] - bestBuy;
-                max = Math.max(max, profit);
-                
+     int buyPrice = Integer.MAX_VALUE; // because we have to buy in less so we compare later
+        int maxprofit =0;
+        for(int i =0; i<prices.length;i++){
+            if(buyPrice < prices[i]){ //profit 
+                int profit = prices[i]- buyPrice;
+                maxprofit = Math.max(maxprofit, profit);
+            }else{
+                buyPrice = prices[i]; //agr profit n ho to buy krlo 
             }
-            // and hmara best buy hoga mimium in all array price
-            bestBuy = Math.min(bestBuy, prices[i]);
-        } 
-        return max;
-        
+        }
+        return maxprofit;
     }
 }
