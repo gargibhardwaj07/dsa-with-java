@@ -4,7 +4,7 @@ class Solution {
       for(int i =0;i<s.length();i++){
           char ch = s.charAt(i);
           //opening condition
-          if(ch == '(' | ch == '{' || ch =='[' ){
+          if(ch == '(' || ch == '{' || ch =='[' ){
               st.push(ch);
           }
           else{
