@@ -1,0 +1,30 @@
+class Solution {
+    public boolean areSimilar(int[][] mat, int k) {
+        int m = mat.length;
+        int n = mat[0].length;
+
+        int shift = k % n;
+
+        // If no effective shift, matrix is same
+        if (shift == 0) return true;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+
+                if (i % 2 == 0) {
+                    // even row -> left shift
+                    if (mat[i][j] != mat[i][(j + shift) % n]) {
+                        return false;
+                    }
+                } else {
+                    // odd row -> right shift
+                    if (mat[i][j] != mat[i][(j - shift + n) % n]) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+}
